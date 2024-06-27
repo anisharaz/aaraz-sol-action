@@ -12,4 +12,6 @@ https://solaction.aaraz.me/
 2. Go to https://www.dial.to/ and paste the url where your action api is hosted.
 3. Copy the link after submitting and wooohooo 🥳💫 you can use the copied linked to twitter and enjoy the magnificent Blink
 
-Note: you need to verify your action Api domain at https://airtable.com/appGlCDHyLzKnyljX/pagIjqCnWiA7jppHM/form before it will properly show on https://x.com
+Note: 
+1. you need to verify your action Api domain at https://airtable.com/appGlCDHyLzKnyljX/pagIjqCnWiA7jppHM/form before it will properly show on https://x.com
+2. Replace the RPC url in the code with your own RPC url in file the /src/routes/main.ts
