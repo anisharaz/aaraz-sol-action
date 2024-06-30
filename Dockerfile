@@ -10,5 +10,5 @@ WORKDIR /app
 COPY . .
 RUN mkdir dist
 COPY --from=builder /app/dist/ ./dist
-RUN npm install --only=production
+RUN npm install --omit=dev
 ENTRYPOINT [ "node","dist/index.js" ]
