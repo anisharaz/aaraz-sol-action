@@ -19,10 +19,10 @@ const mainRoute = Router();
 const mainGET = async (req: Request, res: Response) => {
   try {
     const payload: ActionGetResponse = {
-      title: "Buy Be A Coffee",
+      title: "Buy Me A Coffee",
       icon: "http://solaction.aaraz.me/aaz.png",
       description:
-        "You are about to send be some SOL to me keep me motivated toward Web3 development. ",
+        "You are about to send be some SOL to keep me motivated toward Web3 development.",
       label: "1 SOL cheers!",
       links: {
         actions: [
