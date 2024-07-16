@@ -64,8 +64,14 @@ const mainPOST = async (req: Request, res: Response) => {
   const myaccount = new PublicKey(toAddress);
   const senderaccount = new PublicKey(account);
   const connection = new Connection(clusterApiUrl("mainnet-beta")); // Add your rpc url here for better performance
-  const transaction = new Transaction();
-  transaction.feePayer = senderaccount;
+
+  const { blockhash, lastValidBlockHeight } =
+    await connection.getLatestBlockhash();
+  const transaction = new Transaction({
+    feePayer: senderaccount,
+    blockhash,
+    lastValidBlockHeight,
+  });
 
   transaction.add(
     SystemProgram.transfer({
@@ -74,11 +80,6 @@ const mainPOST = async (req: Request, res: Response) => {
       lamports: Number(amount) * LAMPORTS_PER_SOL,
     })
   );
-  transaction.feePayer = senderaccount;
-
-  transaction.recentBlockhash = (
-    await connection.getLatestBlockhash()
-  ).blockhash;
 
   const payload: ActionPostResponse = await createPostResponse({
     fields: {
